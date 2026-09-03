@@ -1,0 +1,3 @@
+login test: PASS
+sort test: FAIL
+checkout test: PASS
