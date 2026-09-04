@@ -1,17 +1,10 @@
 *** Settings ***
-Library                 SeleniumLibrary
-
-*** Variables ***
-${URL}                  https://www.saucedemo.com
-${BROWSER}              chrome  
+Resource                 common.resource
 
 *** Test Cases ***
 Login With Valid Credentials
-    Open Browser        ${URL}                  ${BROWSER}
-    Input Text          id=user-name          standard_user
-    Input Text          id=password           secret_sauce
-    Click Button        id=login-button
-    Wait Until Location Contains                inventory
+    [Tags]  smoke       login
+    Open Saucedemo And Login
     [Teardown]          Close Browser
 
 Login With Invalid Credentials
