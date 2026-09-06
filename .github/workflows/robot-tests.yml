@@ -28,7 +28,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Run Robot Framework tests
-        run: robot --outputdir results --variables HEADLESS:True login_test.robot checkout_test.robot price_test.robot
+        run: robot --outputdir results --variable HEADLESS:True login_test.robot checkout_test.robot price_test.robot
 
       - uses: actions/upload-artifact@v4
         if: always()
