@@ -34,5 +34,5 @@ jobs:
         if: always()
         with:
           name: robot-framework-report
-          path: results/
+          path: qa-automation-robotframework/results/
           retention-days: 30
