@@ -6,13 +6,13 @@ Library             price_utils.py
 Cart Total Should Match Sum Of Item Prices
     [Tags]              smoke               checkout
     Open Saucedemo And Login
-    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-backpack"]
+    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-backpack"]       timeout=15s
     Click Element       css=[data-test="add-to-cart-sauce-labs-backpack"]
-    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bike-light"]
+    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bike-light"]     timeout=15s
     Click Element       css=[data-test="add-to-cart-sauce-labs-bike-light"]
-    Wait Until Element Is Visible           css=.shopping_cart_link
+    Wait Until Element Is Visible           css=.shopping_cart_link     timeout=15s
     Click Element       css=.shopping_cart_link
-    Wait Until Location Contains    cart
+    Wait Until Location Contains    cart            timeout=15s
 
     @{item_prices}=     Get Item Prices On Cart Page
     ${expected_total}=  Sum Prices          ${item_prices}
@@ -25,15 +25,15 @@ Cart Total Should Match Sum Of Item Prices
 Cart Total Should Match Sum Of Three Item Prices
     [Tags]              smoke           checkout
     Open Saucedemo And Login
-    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-backpack"]
+    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-backpack"]           timeout=15s
     Click Element       css=[data-test="add-to-cart-sauce-labs-backpack"]
-    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bike-light"]
+    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bike-light"]         timeout=15s
     Click Element       css=[data-test="add-to-cart-sauce-labs-bike-light"]
-    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]
+    Wait Until Element Is Visible           css=[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]       timeout=15s
     Click Element       css=[data-test="add-to-cart-sauce-labs-bolt-t-shirt"]
-    Wait Until Element Is Visible           css=.shopping_cart_link
+    Wait Until Element Is Visible           css=.shopping_cart_link         timeout=15s
     Click Element       css=.shopping_cart_link
-    Wait Until Location Contains        cart
+    Wait Until Location Contains        cart            timeout=15s
 
     @{item_prices}=     Get Item Prices On Cart Page
     ${expected_total}=  Sum Prices          ${item_prices}

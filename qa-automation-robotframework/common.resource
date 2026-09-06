@@ -24,19 +24,19 @@ Open Saucedemo And Login
     Wait Until Location Contains                inventory
 
 Add Backpack To Cart And Go To Cart
-    Wait Until Element Is Visible       css=[data-test="add-to-cart-sauce-labs-backpack"]
+    Wait Until Element Is Visible       css=[data-test="add-to-cart-sauce-labs-backpack"]       timeout=15s
     Click Element        css=[data-test="add-to-cart-sauce-labs-backpack"]
-    Wait Until Element Is Visible       css=.shopping_cart_link
+    Wait Until Element Is Visible       css=.shopping_cart_link             timeout=15s
     Click Element        css=.shopping_cart_link
-    Wait Until Location Contains        cart
+    Wait Until Location Contains        cart            timeout=15s
 
 Complete Checkout       
     [Arguments]         ${first_name}           ${last_name}        ${zip}
-    Wait Until Element Is Visible        css=.checkout_button
+    Wait Until Element Is Visible        css=.checkout_button           timeout=15s
     Click Element       css=.checkout_button
     Input Text          id=first-name           ${first_name}
     Input Text          id=last-name            ${last_name}
     Input Text          id=postal-code          ${zip}
     Click Button       id=continue
-    Wait Until Element Is Visible        id=finish
+    Wait Until Element Is Visible        id=finish          timeout=15s
     Click Button        id=finish
