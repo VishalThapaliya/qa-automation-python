@@ -7,8 +7,9 @@ Login With Valid Credentials
     Open Saucedemo And Login
     [Teardown]          Close Browser
 
-Login With Invalid Credentials
-    Open Browser        ${URL}                  ${BROWSER}
+Login With Invalid Credentials Shows Error
+    [Tags]              regression              login
+    Open Saucedemo
     Input Text          id=user-name            invalid_user
     Input Text          id=password             wrong_password
     Click Button        id=login-button

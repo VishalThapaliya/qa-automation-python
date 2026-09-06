@@ -8,6 +8,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qa-automation-robotframework
     steps:
       - uses: actions/checkout@v4
 
@@ -25,11 +28,11 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Run Robot Framework tests
-        run: robot --outputdir results login_test.robot checkout_test.robot price_test.robot
+        run: robot --outputdir results --variable HEADLESS:True login_test.robot checkout_test.robot price_test.robot
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: robot-framework-report
-          path: results/
+          path: qa-automation-robotframework/results/
           retention-days: 30
