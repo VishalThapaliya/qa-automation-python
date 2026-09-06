@@ -4,10 +4,20 @@ Library                 SeleniumLibrary
 *** Variables ***
 ${URL}                  https://www.saucedemo.com
 ${BROWSER}              chrome
+${VALID_USERNAME}       standard_user
+${VALID_PASSWORD}       secret_sauce
+${HEADLESS}             False
 
 *** Keywords ***
+Open Saucedemo
+    IF  '${HEADLESS}' == 'True'
+        Open Browser        ${URL}      ${BROWSER}      options=add_argument("--headless=new")
+    ELSE
+        Open Browser        ${URL}      ${BROWSER}
+    END
+
 Open Saucedemo And Login
-    Open Browser        ${URL}                  ${BROWSER}
+    Open Saucedemo
     Input Text          id=user-name            standard_user
     Input Text          id=password             secret_sauce
     Click Button        id=login-button
