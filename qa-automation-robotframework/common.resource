@@ -43,6 +43,8 @@ Complete Checkout
     Input Text          id=first-name           ${first_name}
     Input Text          id=last-name            ${last_name}
     Input Text          id=postal-code          ${zip}
-    Click Element Via JS                        \#continue
+    ${filled_zip}=      Get Value               id=postal-code
+    Log     Value acutally in postal-code field before clicking continue Continue: ${filled_zip}
+    Click Element       id=continue
     Wait Until Element Is Visible               id=finish
-    Click Element Via JS    \#finish
+    Click Element       id=finish
