@@ -41,7 +41,9 @@ Complete Checkout
     Click Element Via JS                        .checkout_button
     Wait Until Element Is Visible               id=first-name
     Input Text          id=first-name           ${first_name}
+    Wait Until Element Is Visible               id=last-name
     Input Text          id=last-name            ${last_name}
+    Wait Until Element Is Visible               id=postal-code
     Input Text          id=postal-code          ${zip}
     ${filled_zip}=      Get Value               id=postal-code
     Log     Value acutally in postal-code field before clicking continue Continue: ${filled_zip}
