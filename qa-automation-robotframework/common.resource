@@ -15,7 +15,7 @@ Click Element Via JS
 
 Open Saucedemo
     IF  '${HEADLESS}' == 'True'
-        Open Browser        ${URL}      ${BROWSER}      options=add_argument("--headless=new")
+        Open Browser        ${URL}      ${BROWSER}      options=add_argument("--headless=new");add_argument("--disable-gpu")
     ELSE
         Open Browser        ${URL}      ${BROWSER}
     END
@@ -23,16 +23,17 @@ Open Saucedemo
 
 Open Saucedemo And Login
     Open Saucedemo
-    Input Text          id=user-name            ${VALID_USERNAME}
-    Input Text          id=password             ${VALID_PASSWORD}
-    Click Button        id=login-button
-    Wait Until Location Contains                inventory
+    Wait Until Element Is Visible                   id=user-name
+    Input Text              id=user-name            ${VALID_USERNAME}
+    Input Text              id=password             ${VALID_PASSWORD}
+    Click Element Via JS     \#login-button
+    Wait Until Location Contains                    inventory
 
 Add Backpack To Cart And Go To Cart
     Wait Until Element Is Visible       css=[data-test="add-to-cart-sauce-labs-backpack"]
-    Click Element                       css=[data-test="add-to-cart-sauce-labs-backpack"]
+    Click Element Via JS                [data-test="add-to-cart-sauce-labs-backpack"]
     Wait Until Element Is Visible       css=.shopping_cart_link
-    Click Element                       css=.shopping_cart_link
+    Click Element Via JS                .shopping_cart_link
     Wait Until Element Is Visible       css=.checkout_button
 
 Complete Checkout       
